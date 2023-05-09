@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct aluno{
+  char nome[50];
+  int matricula;
+  char curso[40];
+
+  
+}listaalunos;
+
+int main() {
+  listaalunos lista[3];
+  
+  for(int i = 0; i < 3;i++){
+    printf("digite o nome:");
+    scanf(" %50[^\n]s", &lista[i].nome);
+    printf("digite a matricula:");
+    scanf(" %d", &lista[i].matricula);
+    printf("escreva o nome do curso:");
+    scanf(" %40[^\n]s", lista[i].curso);
+  }
+    for(int i = 0;i < 3;i++){
+      printf("nome :%s\n", lista[i].nome);
+      printf("matricula:%d\n", lista[i].matricula);
+      printf("curso :%s\n", lista[i].curso);
+    } 
+  
+  return 0;
+  
+}                                 
