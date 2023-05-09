@@ -1,0 +1,22 @@
+#include <iostream>
+#include <string.h>
+
+typedef struct aluno{
+  char nome[50];
+  int idade;
+  char endereco[60];
+}listaalunos;
+
+int main() {
+  listaalunos aluno1;
+  
+
+  printf("digite o nome:");
+  scanf(" %50[^\n]s", &aluno1.nome);
+  printf("digite a idade:");
+  scanf(" %d", &aluno1.idade);
+  printf("escreva seu endereco:");
+  scanf(" %60[^\n]s", &aluno1.endereco);
+
+  printf("registro: nome: %s , idade:%d , endereco: %s", aluno1.nome, aluno1.idade, aluno1.endereco); 
+}                    
