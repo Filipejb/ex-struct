@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <string.h>
+
+typedef struct aluno{
+  char nome[50];
+  int matricula;
+  int nota1;
+  int nota2;
+  int nota3;
+
+  
+}listaalunos;
+
+int main() {
+  listaalunos lista[5];
+  int medima, medimen=10, maiornota1;
+  int imdeima, imedmen, imedmaiornota1;
+  int i;
+  
+  for( i = 0; i < 5;i++){
+    printf("digite o nome:");
+    scanf(" %50[^\n]s", &lista[i].nome);
+    printf("digite a matricula:");
+    scanf(" %d", &lista[i].matricula);
+    printf("escreva a 1 nota:");
+    scanf(" %d", lista[i].nota1);
+    printf("escreva a 1 nota:");
+    scanf(" %d", lista[i].nota2);
+    printf("escreva a 1 nota:");
+    scanf(" %d", lista[i].nota3);
+  }
+    for(i = 0; i < 5;i++){
+      maiornota1 = lista[i].nota1;
+      imedmaiornota1 = i;
+    }
+    
+    
+  
+      
+      printf("aluno com maior nota na 1 prova :%s", lista[imedmaiornota1].nome);
+      printf("aluno com maior media:%d\n", medima);
+      printf("aluno com menor media :%d\n", medimen);
+    
+  
+  return 0;
+  
+}                                 
