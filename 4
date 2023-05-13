@@ -1,0 +1,55 @@
+#include <stdio.h>
+
+typedef struct {
+    char nome[50];
+    int matricula;
+    float media;
+} Aluno;
+
+int main() {
+    Aluno alunos[10], apr[10], repr[10];
+    int i, j = 0, k = 0;
+
+    
+    for (i = 0; i < 3; i++) {
+        printf("Aluno %d:\n", i+1);
+        printf("Nome: ");
+        scanf("%s", alunos[i].nome);
+        printf("Matricula: ");
+        scanf("%d", &alunos[i].matricula);
+        printf("Media Final: ");
+        scanf("%f", &alunos[i].media);
+        printf("\n");
+    }
+
+    
+    for (i = 0; i < 3; i++) {
+        if (alunos[i].media >= 5.0) {
+            apr[j] = alunos[i];
+            j++;
+        } else {
+            repr[k] = alunos[i];
+            k++;
+        }
+    }
+
+    
+    printf("Alunos Aprovados:\n");
+    for (i = 0; i < j; i++) {
+        printf("Nome: %s\n", apr[i].nome);
+        printf("Matricula: %d\n", apr[i].matricula);
+        printf("Media Final: %.2f\n", apr[i].media);
+        printf("\n");
+    }
+
+   
+    printf("Alunos Reprovados:\n");
+    for (i = 0; i < k; i++) {
+        printf("Nome: %s\n", repr[i].nome);
+        printf("Matricula: %d\n", repr[i].matricula);
+        printf("Media Final: %.2f\n", repr[i].media);
+        printf("\n");
+    }
+
+    return 0;
+}
