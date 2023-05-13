@@ -1,47 +1,73 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
-typedef struct aluno{
-  char nome[50];
+struct Aluno {
   int matricula;
-  int nota1;
-  int nota2;
-  int nota3;
-
-  
-}listaalunos;
+  char nome[50];
+  float nota1;
+  float nota2;
+  float nota3;
+  float media;
+};
 
 int main() {
-  listaalunos lista[5];
-  int medima, medimen=10, maiornota1;
-  int imdeima, imedmen, imedmaiornota1;
-  int i;
+  int i, j, n = 5;
+  struct Aluno alunos[n];
+  int maxnoti = 0, maxmedi = 0, minmedi = 0;
   
-  for( i = 0; i < 5;i++){
-    printf("digite o nome:");
-    scanf(" %50[^\n]s", &lista[i].nome);
-    printf("digite a matricula:");
-    scanf(" %d", &lista[i].matricula);
-    printf("escreva a 1 nota:");
-    scanf(" %d", lista[i].nota1);
-    printf("escreva a 1 nota:");
-    scanf(" %d", lista[i].nota2);
-    printf("escreva a 1 nota:");
-    scanf(" %d", lista[i].nota3);
+  
+  for (i = 0; i < n; i++) {
+    printf("\nEntre com os dados do aluno %d:\n", i+1);
+    printf("Matricula: ");
+    scanf("%d", &alunos[i].matricula);
+    printf("Nome: ");
+    scanf("%s", alunos[i].nome);
+    printf("Nota 1: ");
+    scanf("%f", &alunos[i].nota1);
+    printf("Nota 2: ");
+    scanf("%f", &alunos[i].nota2);
+    printf("Nota 3: ");
+    scanf("%f", &alunos[i].nota3);
+    alunos[i].media = (alunos[i].nota1 + alunos[i].nota2 + alunos[i].nota3) / 3;
   }
-    for(i = 0; i < 5;i++){
-      maiornota1 = lista[i].nota1;
-      imedmaiornota1 = i;
+  
+
+  
+  for (i = 1; i < n; i++) {
+    if (alunos[i].nota1 > alunos[maxnoti].nota1) {
+      maxnoti = i;
     }
-    
-    
+  }
+  printf("\nAluno com a maior nota na primeira prova:\n");
+  printf("Matricula: %d\n", alunos[maxnoti].matricula);
+  printf("Nome: %s\n", alunos[maxnoti].nome);
+  printf("Nota 1: %.2f\n", alunos[maxnoti].nota1);
   
-      
-      printf("aluno com maior nota na 1 prova :%s", lista[imedmaiornota1].nome);
-      printf("aluno com maior media:%d\n", medima);
-      printf("aluno com menor media :%d\n", medimen);
-    
   
-  return 0;
   
-}                                 
+  
+  for (i = 1; i < n; i++) {
+    if (alunos[i].media > alunos[maxmedi].media) {
+      maxmedi = i;
+    }
+  }
+  printf("\nAluno com a maior media geral:\n");
+  printf("Matricula: %d\n", alunos[maxmedi].matricula);
+  printf("Nome: %s\n", alunos[maxmedi].nome);
+  printf("Media: %.2f\n", alunos[maxmedi].media);
+  
+  
+  
+  for (i = 1; i < n; i++) {
+    if (alunos[i].media < alunos[minmedi].media) {
+      minmedi = i;
+    }
+  }
+  printf("\nAluno com a menor media geral:\n");
+  printf("Matricula: %d\n", alunos[minmedi].matricula);
+  printf("Nome: %s\n", alunos[minmedi].nome);
+  printf("Media: %.2f\n", alunos[minmedi].media);
+
+
+}
